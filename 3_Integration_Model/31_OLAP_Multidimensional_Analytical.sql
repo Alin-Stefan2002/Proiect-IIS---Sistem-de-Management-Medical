@@ -15,7 +15,7 @@ SELECT * FROM EXT_MEDICAL_SAMPLES;
 --- 1. Dimensions
 ------------------------------------------------------------------------------------------------------------------------
 
--- D1: Dimensiunea Pacienți
+-- D1: Dimensiunea pacienți
 CREATE OR REPLACE VIEW OLAP_DIM_PATIENTS AS
 SELECT 
     patient_id, 
@@ -83,11 +83,11 @@ GROUP BY p.patient_id, c.clinic_id, s.id_sample, i.age, i.smoker;
 SELECT * FROM OLAP_FACTS_MEDICAL_AMOUNT;
 
 --------------------------------------------------------------------------------
---- 3. Analytical Views: OLAP Views
+--- 3. Analytical views: OLAP Views
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
--- VIEW 1: Clasamentul Veniturilor pe orașe și gen
+-- VIEW 1: Clasamentul veniturilor pe orașe și gen
 --------------------------------------------------------------------------------
 CREATE OR REPLACE VIEW OLAP_VIEW_REVENUE_CITY_GEN AS
 SELECT 
