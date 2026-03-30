@@ -1,4 +1,4 @@
--- 1. Test Oracle 
+-- 1. Test Oracle
 SELECT * FROM V_INSURANCE_REMOTE;
 
 -- 2. Test Postgres 
