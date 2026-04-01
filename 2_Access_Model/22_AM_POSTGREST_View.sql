@@ -3,7 +3,7 @@
 --------------------------------------------------------------------------------
 
 -- =============================================================================
--- 1. TESTE DE CONECTIVITATE (Oracle "suna" la PostgREST)
+-- 1. TESTE DE CONECTIVITATE 
 -- =============================================================================
 -- Test pentru pacienti:
 SELECT HTTPURITYPE.createuri('http://host.docker.internal:3000/patients').getclob() as doc_patients 
@@ -37,7 +37,6 @@ FROM JSON_TABLE( (select doc from rest_doc) , '$[*]'
 
 -- =============================================================================
 -- 3. VIEW (V_MEDICAL_APPOINTMENTS_REMOTE)
--- Oglindeste tabela appointments.medical_appointments din Postgres
 -- =============================================================================
 CREATE OR REPLACE VIEW V_APPOINTMENTS_REMOTE AS
 WITH rest_doc AS
