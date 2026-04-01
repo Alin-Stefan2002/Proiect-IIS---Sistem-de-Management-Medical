@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- 28_AM_JSON_MongoDB_View.sql (Adaptat pentru Proiectul Medical)
+-- 28_AM_JSON_MongoDB_View.sql
 --------------------------------------------------------------------------------
 
 -- 1. Stergem vederea veche (daca exista) pentru a evita erorile
@@ -9,7 +9,7 @@ EXCEPTION WHEN OTHERS THEN NULL;
 END;
 /
 
--- 2. Cream functia care se autentifica la RESTHeart (exact ca in laborator)
+-- 2. Cream functia care se autentifica la RESTHeart
 CREATE OR REPLACE FUNCTION get_restheart_data(pURL VARCHAR2, pUserPass VARCHAR2) 
 RETURN CLOB IS
   l_req   UTL_HTTP.req;
@@ -28,7 +28,7 @@ EXCEPTION WHEN OTHERS THEN
 END;
 /
 
--- 3. Cream Vederea de Integrare (Integration View) folosind JSON_TABLE
+-- 3. Cream Integration View folosind JSON_TABLE
 CREATE OR REPLACE VIEW V_CLINICS_NOSQL AS
 WITH rest_json AS (
     SELECT get_restheart_data('http://host.docker.internal:8081/medical/clinics', 'admin:secret') as doc 
