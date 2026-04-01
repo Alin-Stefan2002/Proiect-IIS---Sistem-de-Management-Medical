@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- 23_AM_CSV_ExternalTable_View.sql (Cu transcrieri medicale)
+-- 23_AM_CSV_ExternalTable_View.sql 
 --------------------------------------------------------------------------------
 
 -- 1. Ne asiguram ca indicatorul catre folderul de fisiere exista
@@ -12,13 +12,13 @@ EXCEPTION WHEN OTHERS THEN NULL;
 END;
 /
 
--- 3. Cream External Table (cu coloana transcription de 4000 caractere)
+-- 3. Cream External Table
 CREATE TABLE EXT_MEDICAL_SAMPLES (
     id_sample NUMBER(6),
     sample_name VARCHAR2(150),
     medical_specialty VARCHAR2(100),
     description VARCHAR2(1000),
-    transcription VARCHAR2(4000), -- Iata coloana pe care o doreai!
+    transcription VARCHAR2(4000),
     keywords VARCHAR2(1000)
 )
 ORGANIZATION EXTERNAL (
@@ -34,11 +34,11 @@ ORGANIZATION EXTERNAL (
             sample_name CHAR(150), 
             medical_specialty CHAR(100), 
             description CHAR(1000), 
-            transcription CHAR(4000), -- Specificam limitarea si aici
+            transcription CHAR(4000), 
             keywords CHAR(1000)
         )
     )
-    LOCATION ('mtsamples_ready.csv') -- Numele noului fisier
+    LOCATION ('mtsamples_ready.csv')
 )
 REJECT LIMIT UNLIMITED;
 
